@@ -2,9 +2,10 @@
 // @name           wykopSpamBlock
 // @namespace      wykopSpamBlock
 // @description    Skrypt ukrywający sponsorowane i polecane wykopy w serwisie wykop.pl 3.0
-// @include        http://www.wykop.pl/
-// @include        http://www.wykop.pl/polecane/
-// @include        http://www.wykop.pl/hity/
+// @include        http://www.*wykop.pl/
+// @include        http://www.*wykop.pl/strona/*
+// @include        http://www.*wykop.pl/wykopalisko*
+// @include        http://www.*wykop.pl/hity* 
 // ==/UserScript==
 
 function block(element) {
