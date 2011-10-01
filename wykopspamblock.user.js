@@ -83,7 +83,6 @@
     for (key in adTypes) {
           
       if (adTypes[key].test()) {
-        console.log("blokuję " + key);
         block(entries.item(i));
       }
       
