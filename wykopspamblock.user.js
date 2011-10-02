@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name           wykopSpamBlock
 // @namespace      wykopSpamBlock
+// @version        0.8
 // @description    Skrypt ukrywający sponsorowane i polecane wykopy w serwisie wykop.pl 3.0
 // @include        http://www.*wykop.pl/
 // @include        http://www.*wykop.pl/strona/*
@@ -15,13 +16,6 @@
     element.style.display = 'none';
     
   }
-
-  //////////////////////////////////////////////////////////////////////
-  
-  var i;
-  var key;
-  var entries = document.querySelectorAll('#body-con .entry');
-  var header;
   
   //////////////////////////////////////////////////////////////////////
   
@@ -51,7 +45,9 @@
     }
 
   };
-      
+
+  //////////////////////////////////////////////////////////////////////
+
   // container with regular expressions
   var filters = {
       
@@ -71,14 +67,21 @@
 
   //////////////////////////////////////////////////////////////////////
 
+  var entries = document.querySelectorAll('#body-con .entry');
+  var header;
+  var i;
+  var key;
+  
+  //////////////////////////////////////////////////////////////////////
+  
   for (i = 0; i < entries.length; ++i) {
 
     // first div > .content > header
-    header = entries.item(i).getElementsByTagName('div').item(0).querySelectorAll('.content header').item(0);
+    header = entries.item(i).getElementsByTagName('div').item(0).querySelector('.content header');
 
     adTypes.partner.setHref(header.querySelectorAll('p a').item(1));
     adTypes.wykopPoleca.setHref(header.querySelectorAll('p a').item(2));
-    adTypes.sponsorowany.setHref(header.querySelectorAll('h2 a').item(0));
+    adTypes.sponsorowany.setHref(header.querySelector('h2 a'));
 
     for (key in adTypes) {
           
