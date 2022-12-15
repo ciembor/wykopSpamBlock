@@ -1,4 +1,4 @@
-#wykopSpamBlock
+Rewrite skryptu zeby dzialal w 2022. 
 
 ## Opis
 
